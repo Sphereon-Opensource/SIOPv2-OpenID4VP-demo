@@ -145,7 +145,11 @@ function convertToString(value: unknown): string {
     if (value === null || value === undefined) {
         return ''
     }
-    return String(value)
+    let result = String(value);
+    if(result.length > 50) {
+        result = result.substring(0, 50) + '...'
+    }
+    return result
 }
 
 function toHumanReadable(key: string): string {
