@@ -29,18 +29,12 @@ export async function convertPIDToUniformCredential(credential: any): Promise<Un
             return Promise.reject('Missing decoded MDOC credential')
         }
         const decodedCredential = wvp.vcs[0].credential as any // FIXME
-        const credentialSubject = CredentialMapper.toUniformCredential(decodedCredential).credentialSubject as Record<string, unknown>;
+        const uniformCredential = CredentialMapper.toUniformCredential(decodedCredential);
+        const credentialSubject = uniformCredential.credentialSubject as Record<string, unknown>;
         return {
             original: credential,
             subjectClaim:  credentialSubject,
             transformedClaims: convertPIDMdocWellknownPayloadValues(credentialSubject)
-        }
-    }
-    if ('vct' in credential) {
-        return {
-            original: credential,
-            subjectClaim: credential,
-            transformedClaims: convertPIDSdJwtWellknownPayloadValues(credential)
         }
     }
     const credentialSummary = await toNonPersistedCredentialSummary(credential)
