@@ -5,6 +5,7 @@ import {CredentialMapper, SdJwtDecodedVerifiableCredentialPayload, W3CVerifiable
 import crypto from 'crypto-browserify'
 import {VerifiableCredential} from "@veramo/core";
 import {CredentialRole} from "@sphereon/ssi-sdk.data-store";
+import {IVerifiableCredential} from "@sphereon/ssi-types/src/types";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function convertPIDToUniformCredential(credentials: Array<any>): Promise<Array<UniformCredential>> {
@@ -39,10 +40,20 @@ export async function convertPIDToUniformCredential(credentials: Array<any>): Pr
                 transformedClaims: convertPIDMdocWellknownPayloadValues(credentialSubject)
             }
         }
-        const wvp = CredentialMapper.toWrappedVerifiableCredential(credential);
-        console.log('wvp', wvp)
+        
+        let uniformCredential: IVerifiableCredential
+        if(CredentialMapper.isPresentation(credential)) {
+            const wvp = CredentialMapper.toWrappedVerifiablePresentation(credential);
+            if (!wvp.vcs || wvp.vcs.length == 0) {
+                return Promise.reject('Missing decoded credential')
+            }
+            const decodedCredential = wvp.vcs[0].credential as any // FIXME
+            uniformCredential = CredentialMapper.toUniformCredential(decodedCredential);
+        } else {
+            uniformCredential = CredentialMapper.toUniformCredential(credential);
+        }
         const credentialSummary = await toNonPersistedCredentialSummary({
-            verifiableCredential: wvp.decoded as VerifiableCredential,
+            verifiableCredential: uniformCredential as VerifiableCredential,
             credentialRole: CredentialRole.HOLDER
         })
         return {
