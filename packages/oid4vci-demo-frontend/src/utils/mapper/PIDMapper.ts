@@ -228,7 +228,7 @@ function convertPIDUniformVCWellknownPayloadValues(properties: CredentialDetails
     };
 
     properties.forEach(property => {
-        const {id, value} = property;
+        const {id, label, value} = property;
 
         if (keyMappings[id]) {
             humanReadablePayload[keyMappings[id]] = convertToString(value);
@@ -244,7 +244,7 @@ function convertPIDUniformVCWellknownPayloadValues(properties: CredentialDetails
             const addressParts = [street_address, postal_code, locality].filter(part => part);
             humanReadablePayload["Address"] = addressParts.join(', ');
         } else {
-            humanReadablePayload[formatTitle(id)] = convertToString(value);
+            humanReadablePayload[formatTitle(label ?? id)] = convertToString(value);
         }
     });
 
