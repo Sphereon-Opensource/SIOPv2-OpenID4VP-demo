@@ -72,7 +72,7 @@ export async function convertPIDToUniformCredential(credentials: Array<any>): Pr
 function convertPIDSdJwtWellknownPayloadValues(payload: Record<string, any>) {
     const humanReadablePayload: Record<string, any> = {}
 
-    const exclusions: string[] = ['vct', 'iss', 'exp', 'iat', 'cnf', 'age_equal_or_over', 'subject']
+    const exclusions: string[] = ['vct', 'iss', 'exp', 'iat', 'cnf', 'age_equal_or_over']
 
     const isAgeKey = (key: string): boolean => !isNaN(Number(key))
 
@@ -233,6 +233,9 @@ function convertPIDUniformVCWellknownPayloadValues(properties: CredentialDetails
 
     properties.forEach(property => {
         const {id, label, value} = property;
+        if(label && label.toLowerCase() === 'subject') {
+            return
+        }
 
         if (keyMappings[id]) {
             humanReadablePayload[keyMappings[id]] = convertToString(value);
