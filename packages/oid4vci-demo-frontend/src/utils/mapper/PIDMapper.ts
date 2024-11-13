@@ -38,7 +38,8 @@ export async function convertPIDToUniformCredential(credentials: Array<any>): Pr
                 transformedClaims: convertPIDMdocWellknownPayloadValues(credentialSubject)
             }
         }
-        const credentialSummary = await toNonPersistedCredentialSummary(credential)
+        const uniformCredential = CredentialMapper.toUniformCredential(credential);
+        const credentialSummary = await toNonPersistedCredentialSummary(uniformCredential)
         return {
             original: credential,
             subjectClaim: CredentialMapper.toUniformCredential(credential).credentialSubject as Record<string, unknown>,
