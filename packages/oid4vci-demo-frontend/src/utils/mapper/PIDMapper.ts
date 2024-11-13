@@ -58,7 +58,7 @@ export async function convertPIDToUniformCredential(credentials: Array<any>): Pr
         })
         return {
             original: credential,
-            subjectClaim: CredentialMapper.toUniformCredential(credential).credentialSubject as Record<string, unknown>,
+            subjectClaim: uniformCredential.credentialSubject as Record<string, unknown>,
             transformedClaims: convertPIDUniformVCWellknownPayloadValues(credentialSummary.properties)
         }
     })
