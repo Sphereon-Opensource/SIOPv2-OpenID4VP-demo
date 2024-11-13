@@ -30,7 +30,8 @@ export async function convertPIDToUniformCredential(credentials: Array<any>): Pr
                 return Promise.reject('Missing decoded MDOC credential')
             }
             const decodedCredential = wvp.vcs[0].credential as any // FIXME
-            const credentialSubject = CredentialMapper.toUniformCredential(decodedCredential).credentialSubject as Record<string, unknown>;
+        const uniformCredential = CredentialMapper.toUniformCredential(decodedCredential);
+        const credentialSubject = uniformCredential.credentialSubject as Record<string, unknown>;
             return {
                 original: credential,
                 subjectClaim: credentialSubject,
