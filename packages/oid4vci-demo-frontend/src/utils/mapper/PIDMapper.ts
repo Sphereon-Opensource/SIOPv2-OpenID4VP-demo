@@ -224,7 +224,7 @@ function convertPIDUniformVCWellknownPayloadValues(properties: CredentialDetails
         "birth_family_name": "Birth Family Name",
         "birthdate": "Date of Birth",
         "place_of_birth": "Place of Birth",
-        "nationalities": "Nationalities"
+        "nationalities": "Nationalities",
     };
 
     properties.forEach(property => {
@@ -243,8 +243,36 @@ function convertPIDUniformVCWellknownPayloadValues(properties: CredentialDetails
             const {street_address, locality, postal_code} = value;
             const addressParts = [street_address, postal_code, locality].filter(part => part);
             humanReadablePayload["Address"] = addressParts.join(', ');
+        } else {
+            humanReadablePayload[formatTitle(id)] = convertToString(value);
         }
     });
 
     return humanReadablePayload;
+}
+
+
+// Words that shouldn't be capitalized in titles (unless they're the first word)
+const lowercaseWords = new Set([
+    'a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'from',
+    'in', 'into', 'near', 'nor', 'of', 'on', 'onto', 'or',
+    'the', 'to', 'with'
+])
+
+export function formatTitle(str: string): string {
+    const words = str
+        // Replace both hyphens and underscores with spaces
+        .replace(/[-_]/g, ' ')
+        .toLowerCase()
+        .split(' ')
+
+    return words
+        .map((word, index) => {
+            // Always capitalize first word and words not in exception list
+            if (index === 0 || !lowercaseWords.has(word)) {
+                return word.charAt(0).toUpperCase() + word.slice(1)
+            }
+            return word
+        })
+        .join(' ')
 }
