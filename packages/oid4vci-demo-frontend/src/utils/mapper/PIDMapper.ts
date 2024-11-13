@@ -37,13 +37,6 @@ export async function convertPIDToUniformCredential(credentials: Array<any>): Pr
                 transformedClaims: convertPIDMdocWellknownPayloadValues(credentialSubject)
             }
         }
-        if ('vct' in credential) {
-            return {
-                original: credential,
-                subjectClaim: credential,
-                transformedClaims: convertPIDSdJwtWellknownPayloadValues(credential)
-            }
-        }
         const credentialSummary = await toNonPersistedCredentialSummary(credential)
         return {
             original: credential,
