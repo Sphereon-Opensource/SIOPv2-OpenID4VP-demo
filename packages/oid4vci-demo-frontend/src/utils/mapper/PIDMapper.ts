@@ -4,6 +4,7 @@ import {CredentialMapper, SdJwtDecodedVerifiableCredentialPayload, W3CVerifiable
 // @ts-ignore
 import crypto from 'crypto-browserify'
 import {VerifiableCredential} from "@veramo/core";
+import {CredentialRole} from "@sphereon/ssi-sdk.data-store";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function convertPIDToUniformCredential(credentials: Array<any>): Promise<Array<UniformCredential>> {
@@ -39,7 +40,10 @@ export async function convertPIDToUniformCredential(credentials: Array<any>): Pr
             }
         }
         const uniformCredential = CredentialMapper.toUniformCredential(credential);
-        const credentialSummary = await toNonPersistedCredentialSummary(uniformCredential)
+        const credentialSummary = await toNonPersistedCredentialSummary({
+            verifiableCredential: uniformCredential,
+            credentialRole: CredentialRole.HOLDER
+        })
         return {
             original: credential,
             subjectClaim: CredentialMapper.toUniformCredential(credential).credentialSubject as Record<string, unknown>,
