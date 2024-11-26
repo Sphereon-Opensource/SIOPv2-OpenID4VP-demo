@@ -485,6 +485,7 @@ export interface SSISecondaryButtonConfig extends ComponentConfig {
 export interface EcosystemGeneralConfig {
     oid4vpAgentBaseUrl?: string
     oid4vciAgentBaseUrl?: string
+    rpcAgentBaseUrl?: string
     authenticationEnabled?: boolean
     authenticationStaticToken?: string
     verifierUrl?: string

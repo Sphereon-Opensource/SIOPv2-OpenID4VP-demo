@@ -5,7 +5,11 @@ import {pdManagerMethods, IPDManager} from '@sphereon/ssi-sdk.pd-manager'
 import {ISIOPv2OID4VPRPRestClient, SIOPv2OID4VPRPRestClient, Siopv2RestClientAuthenticationOpts} from '@sphereon/ssi-sdk.siopv2-oid4vp-rp-rest-client'
 import {IOID4VCIRestClient, OID4VCIRestClient} from '@sphereon/ssi-sdk.oid4vci-issuer-rest-client'
 import {EcosystemGeneralConfig} from '../ecosystem/ecosystem-config'
-import {DEV_OVERRIDE_OID4VCI_AGENT_BASE_URL, DEV_OVERRIDE_OID4VP_AGENT_BASE_URL} from '../environment'
+import {
+    DEV_OVERRIDE_OID4VCI_AGENT_BASE_URL,
+    DEV_OVERRIDE_OID4VP_AGENT_BASE_URL,
+    DEV_OVERRIDE_RPC_AGENT_BASE_URL
+} from '../environment'
 
 export type VCIAgentType = TAgent<IQRCodeGenerator & ISIOPv2OID4VPRPRestClient & IOID4VCIRestClient & IPDManager>
 type AgentMap = { [key: string]: VCIAgentType };
@@ -38,8 +42,9 @@ const getOrCreateAgent = (ecoSystemId: string, generalConfig: EcosystemGeneralCo
                 authentication: buildAuthentication(generalConfig)
             }),
             new AgentRestClient({
-                url: DEV_OVERRIDE_OID4VP_AGENT_BASE_URL
-                    ?? generalConfig.oid4vpAgentBaseUrl
+                url: DEV_OVERRIDE_RPC_AGENT_BASE_URL
+                    ?? generalConfig.rpcAgentBaseUrl 
+                    ?? generalConfig.oid4vpAgentBaseUrl // For backwards compatibility
                     ?? 'https://ssi.sphereon.com/issuer',
                 enabledMethods: [...pdManagerMethods],
             }),
