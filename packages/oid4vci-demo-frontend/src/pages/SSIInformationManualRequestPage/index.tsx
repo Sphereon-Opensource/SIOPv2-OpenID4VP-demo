@@ -101,7 +101,7 @@ const SSIInformationManualRequestPage: React.FC = () => {
                     { pageConfig.text_top_of_image &&
                          <p
                              className={"poppins-medium-36"}
-                             style={{maxWidth: 735, color: '#FBFBFB', marginTop: "auto", marginBottom: 120}}
+                             style={{maxWidth: 735, color: pageConfig.textTopOfImageColor ?? '#FBFBFB', marginTop: "auto", marginBottom: 120, marginLeft: 20}}
                          >
                              {t(`${pageConfig.text_top_of_image}`)}
                          </p>

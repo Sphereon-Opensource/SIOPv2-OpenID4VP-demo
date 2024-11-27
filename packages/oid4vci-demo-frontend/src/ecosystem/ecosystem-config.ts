@@ -289,6 +289,7 @@ export interface SSIInformationManualRequestPageConfig extends PageConfig {
     leftPaneWidth?: string
     photo?: string
     text_top_of_image?: string
+    textTopOfImageColor?: string
     sharing_data_right_pane_title_style?: CSSProperties
     sharing_data_right_pane_paragraph_style?: CSSProperties
     sharing_data_right_pane_title: string
@@ -315,6 +316,7 @@ export interface DataFormElement {
     required?: boolean
     readonlyWhenAbsentInPayload?: boolean
     defaultValue?: FormFieldValue
+    options?: Array<string>
     label?: string
     labelUrl?: string
     labelStyle?: CSSProperties

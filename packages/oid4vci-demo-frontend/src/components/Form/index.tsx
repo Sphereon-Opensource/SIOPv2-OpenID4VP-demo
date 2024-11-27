@@ -61,11 +61,12 @@ const Form: FC<Props> = (props: Props): ReactElement => {
                     labelColor={field.display?.checkboxLabelColor}
                     onValueChange={async (value: FormFieldValue): Promise<void> => onChangeValue(value, field.key)}
                 />
-            case 'text':
+          case 'text':
           case 'date':
                 const isReadonly = field.readonly || formInitData?.[field.key] !== undefined || Boolean(field.readonlyWhenAbsentInPayload)
 
                 return <InputField
+                    id={field.id}
                     labelStyle={field.labelStyle}
                     inlineStyle={{ width: '100%', ...(isReadonly && !!props.inputBackgroundColor && { backgroundColor: props.inputBackgroundColor }), ...field.inputStyle }}
                     label={field.label ? t(field.label) ?? undefined : undefined}
@@ -74,6 +75,7 @@ const Form: FC<Props> = (props: Props): ReactElement => {
                     defaultValue={defaultValue}
                     customValidation={field.customValidation ? new RegExp(field.customValidation) : undefined}
                     onChange={async (value: FormFieldValue): Promise<void> => onChangeValue(value, field.key)}
+                    options={field.options}
                 />
             default:
                 return <div/>

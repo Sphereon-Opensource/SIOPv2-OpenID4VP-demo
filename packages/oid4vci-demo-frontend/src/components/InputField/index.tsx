@@ -7,8 +7,10 @@ type InputValue = string | number | ReadonlyArray<string> | undefined
 type Props = {
     labelStyle?: CSSProperties
     inlineStyle?: CSSProperties
+    id?: string
     type: HTMLInputTypeAttribute
     label?: string
+    options?: Array<string>
     defaultValue?: FormFieldValue
     placeholder?: string
     readonly?: boolean
@@ -25,7 +27,9 @@ const InputField: FC<Props> = (props: Props): ReactElement => {
         placeholder,
         label,
         onChange,
+        id,
         type,
+        options,
         customValidation
     } = props
     const [value, setValue] = useState<FormFieldValue>(defaultValue)
@@ -36,8 +40,10 @@ const InputField: FC<Props> = (props: Props): ReactElement => {
         setValue(defaultValue);
     }, [defaultValue]);
 
-    const onChangeValue = async (event: ChangeEvent<HTMLInputElement>): Promise<void> => {
-        const value: string | boolean = isCheckBox ? event.target.checked : event.target.value
+    const onChangeValue = async (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>): Promise<void> => {
+        const value: string | boolean = isCheckBox 
+            ? (event.target as HTMLInputElement).checked 
+            : event.target.value
         setValue(value)
 
         if (onChange) {
@@ -45,9 +51,11 @@ const InputField: FC<Props> = (props: Props): ReactElement => {
         }
     }
 
-    const onBlur = async (event: FocusEvent<HTMLInputElement>): Promise<void> => {
+    const onBlur = async (event: FocusEvent<HTMLInputElement | HTMLSelectElement>): Promise<void> => {
         if (customValidation) {
-            const value: string | boolean = isCheckBox ? event.target.checked : event.target.value
+            const value: string | boolean = isCheckBox 
+                ? (event.target as HTMLInputElement).checked 
+                : event.target.value
             setIsValid(customValidation.test(value.toString()))
         }
     }
@@ -58,6 +66,23 @@ const InputField: FC<Props> = (props: Props): ReactElement => {
                 {label}
             </label>
         }
+        {options ? (
+            <select
+                style={{...inlineStyle, ...(!isValid && { borderColor: 'red' })}}
+                onChange={onChangeValue}
+                onBlur={onBlur}
+                value={value as string}
+                className={`${style.inputField}${!readonly ? ` ${style.enabled}` : ''}`}
+                disabled={readonly}
+            >
+                {placeholder && <option value="" disabled>{placeholder}</option>}
+                {options.map((option, index) => (
+                    <option key={index} value={option}>
+                        {option}
+                    </option>
+                ))}
+            </select>
+        ) : (
         <input
             type={type}
             style={{...inlineStyle, ...(!isValid && { borderColor: 'red' })}}
@@ -71,6 +96,7 @@ const InputField: FC<Props> = (props: Props): ReactElement => {
             {...(!isCheckBox && { value: value as InputValue})}
             {...(isCheckBox && { checked: value as boolean})}
         />
+        )}
     </div>
 }
 
