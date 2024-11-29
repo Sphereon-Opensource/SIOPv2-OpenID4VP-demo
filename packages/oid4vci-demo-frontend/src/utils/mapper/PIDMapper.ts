@@ -31,13 +31,14 @@ export async function convertPIDToUniformCredential(credentials: Array<any>): Pr
             if (!wvp.vcs || wvp.vcs.length == 0) {
                 return Promise.reject('Missing decoded MDOC credential')
             }
-            const decodedCredential = wvp.vcs[0].credential as any // FIXME
-        const uniformCredential = CredentialMapper.toUniformCredential(decodedCredential);
-        const credentialSubject = uniformCredential.credentialSubject as Record<string, unknown>;
+            const decodedCredential = Object.values(wvp.vcs[0].decoded).reduce((acc, curr) => ({
+                ...acc,
+                ...(curr as Record<string, unknown>)
+            }), {}) as Record<string, unknown>
             return {
                 original: credential,
-                subjectClaim: credentialSubject,
-                transformedClaims: convertPIDMdocWellknownPayloadValues(credentialSubject)
+                subjectClaim: decodedCredential,
+                transformedClaims: convertPIDMdocWellknownPayloadValues(decodedCredential)
             }
         }
         
