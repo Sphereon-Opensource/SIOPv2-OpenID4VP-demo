@@ -44,8 +44,8 @@
   "scripts": {
     "start:dev": "react-scripts start",
     "start:prod": "react-scripts start",
-    "build.disable": "react-scripts build",
-    "build:clean.disable": "react-scripts build",
+    "build": "react-scripts build",
+    "build:clean": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
