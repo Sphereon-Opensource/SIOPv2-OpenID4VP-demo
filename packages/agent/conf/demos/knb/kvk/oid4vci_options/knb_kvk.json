@@ -1,9 +1,0 @@
-{
-  "definitionId": "knb-kvk",
-  "correlationId": "https://kvk.demo.sphereon.com/agent",
-  "issuerOpts": {
-    "didOpts": {
-      "checkLinkedDomains": "if_present"
-    }
-  }
-}

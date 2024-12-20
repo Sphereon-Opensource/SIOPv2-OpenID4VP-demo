@@ -1,9 +1,0 @@
-{
-  "definitionId": "pf3",
-  "correlationId": "https://ssi.sphereon.com/pf3",
-  "issuerOpts": {
-    "didOpts": {
-      "checkLinkedDomains": "if_present"
-    }
-  }
-}

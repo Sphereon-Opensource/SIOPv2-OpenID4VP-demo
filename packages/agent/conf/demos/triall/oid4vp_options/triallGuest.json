@@ -1,8 +1,0 @@
-{
-  "definitionId": "triall2023",
-  "rpOpts": {
-    "didOpts": {
-      "checkLinkedDomains": "if_present"
-    }
-  }
-}

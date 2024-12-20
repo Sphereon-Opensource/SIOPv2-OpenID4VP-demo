@@ -1,9 +1,0 @@
-{
-  "definitionId": "triall2023",
-  "correlationId": "https://ssi.triall.io/issuer",
-  "issuerOpts": {
-    "didOpts": {
-      "checkLinkedDomains": "if_present"
-    }
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "definitionId": "fmdm2023",
-  "correlationId": "https://ssi.future-mobility-alliance.org/issuer",
-  "issuerOpts": {
-    "didOpts": {
-      "checkLinkedDomains": "if_present"
-    }
-  }
-}

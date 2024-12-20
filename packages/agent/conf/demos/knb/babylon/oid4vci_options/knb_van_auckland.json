@@ -1,9 +1,0 @@
-{
-  "definitionId": "knb-bank",
-  "correlationId": "https://bank.demo.sphereon.com/agent",
-  "issuerOpts": {
-    "didOpts": {
-      "checkLinkedDomains": "if_present"
-    }
-  }
-}

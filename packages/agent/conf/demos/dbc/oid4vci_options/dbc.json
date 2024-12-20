@@ -1,9 +1,0 @@
-{
-  "correlationId": "https://ssi.dutchblockchaincoalition.org/agent",
-  "definitionId": "dbc2023",
-  "issuerOpts": {
-    "didOpts": {
-      "checkLinkedDomains": "if_present"
-    }
-  }
-}

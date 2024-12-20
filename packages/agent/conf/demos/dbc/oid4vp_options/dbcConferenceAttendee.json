@@ -1,8 +1,0 @@
-{
-  "definitionId": "dbc2023-old",
-  "rpOpts": {
-    "didOpts": {
-      "checkLinkedDomains": "if_present"
-    }
-  }
-}

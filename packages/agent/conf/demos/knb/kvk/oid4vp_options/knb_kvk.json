@@ -1,8 +1,0 @@
-{
-  "definitionId": "knb-kvk",
-  "rpOpts": {
-    "didOpts": {
-      "checkLinkedDomains": "if_present"
-    }
-  }
-}
