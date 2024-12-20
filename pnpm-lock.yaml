@@ -30,7 +30,7 @@ overrides:
   '@sphereon/oid4vci-common': 0.16.1-next.229
   '@sphereon/oid4vci-issuer': 0.16.1-next.229
   '@sphereon/oid4vci-issuer-server': 0.16.1-next.229
-  '@sphereon/pex': 5.0.0-unstable.11
+  '@sphereon/pex': 5.0.0-unstable.28
   '@sphereon/pex-models': ^2.3.1
   '@sphereon/did-auth-siop': 0.16.1-next.229
   '@sphereon/did-uni-client': 0.6.3-unstable.1
@@ -106,8 +106,8 @@ importers:
         specifier: 0.16.1-next.229
         version: 0.16.1-next.229(@noble/hashes@1.2.0)(awesome-qr@2.1.5-rc.0(encoding@0.1.13))(encoding@0.1.13)(passport-http-bearer@1.0.1)
       '@sphereon/pex':
-        specifier: 5.0.0-unstable.11
-        version: 5.0.0-unstable.11
+        specifier: 5.0.0-unstable.28
+        version: 5.0.0-unstable.28
       '@sphereon/pex-models':
         specifier: ^2.3.1
         version: 2.3.1
@@ -2817,6 +2817,7 @@ packages:
 
   '@sphereon/kmp-mdoc-core@0.2.0-SNAPSHOT.16':
     resolution: {integrity: sha512-+EKpSx2aOe5YehemwsYdHauHAn7Sd+UFuI+OB1ntzRZiX9oLrYnUUVbhOLeNBGnIvSgPBsE8oj7N3hPeZOdWOQ==}
+    bundledDependencies: []
 
   '@sphereon/oid4vc-common@0.16.1-next.224':
     resolution: {integrity: sha512-g+8aKZN7e7D4/doKCPPnojewyN5l9A6bwVOTzCChmBijtzYOQCljL5CnxULdss/1HgycTCwcfyLipCplGVpYYg==}
@@ -2864,8 +2865,8 @@ packages:
   '@sphereon/pex-models@2.3.1':
     resolution: {integrity: sha512-SByU4cJ0XYA6VZQ/L6lsSiRcFtBPHbFioCeQ4GP7/W/jQ+PSBD7uK2oTnKQ9/0iEiMK/6JYqhKgLs4a9UX3UTQ==}
 
-  '@sphereon/pex@5.0.0-unstable.11':
-    resolution: {integrity: sha512-KDprCda5lQ3wGU3s2WDhfxt7z8xR1AXuz1MMEZz/1YyI/m0do+qmFK2+vjO+w5vxNCg7zBC/7Do3odbGFCvSIw==}
+  '@sphereon/pex@5.0.0-unstable.28':
+    resolution: {integrity: sha512-zxHCWAc7fKppS7XX0zxnI4TF+Rdjax8pHc3exrYzn3t59dlv5siEAeYdtFrWJT4UVB5wTGzIEufzV5r+tfjelg==}
     engines: {node: '>=18'}
 
   '@sphereon/react-native-argon2@2.0.9':
@@ -10169,12 +10170,15 @@ packages:
 
   sudo-prompt@8.2.5:
     resolution: {integrity: sha512-rlBo3HU/1zAJUrkY6jNxDOC9eVYliG6nS4JA8u8KAshITd07tafMc/Br7xQwCSseXwJ2iCcHCE8SNWX3q8Z+kw==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   sudo-prompt@9.1.1:
     resolution: {integrity: sha512-es33J1g2HjMpyAhz8lOR+ICmXXAqTuKbuXuUWLhOLew20oN9oUCgCJx615U/v7aioZg7IX5lIh9x34vwneu4pA==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   sudo-prompt@9.2.1:
     resolution: {integrity: sha512-Mu7R0g4ig9TUuGSxJavny5Rv0egCEtpZRNMrZaYS1vxkiIxGiGUwoezU3LazIQ+KE04hTrTfNPgxU5gzi7F5Pw==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   supports-color@0.2.0:
     resolution: {integrity: sha512-tdCZ28MnM7k7cJDJc7Eq80A9CsRFAAOZUy41npOZCs++qSjfIy7o5Rh46CBk+Dk5FbKJ33X3Tqg4YrV07N5RaA==}
@@ -14684,7 +14688,7 @@ snapshots:
       '@astronautlabs/jsonpath': 1.1.2
       '@sphereon/jarm': 0.16.1-next.229(typescript@4.9.5)
       '@sphereon/oid4vc-common': 0.16.1-next.229
-      '@sphereon/pex': 5.0.0-unstable.11
+      '@sphereon/pex': 5.0.0-unstable.28
       '@sphereon/pex-models': 2.3.1
       '@sphereon/ssi-types': 0.31.1-fix.20
       cross-fetch: 4.0.0(encoding@0.1.13)
@@ -14857,7 +14861,7 @@ snapshots:
 
   '@sphereon/pex-models@2.3.1': {}
 
-  '@sphereon/pex@5.0.0-unstable.11':
+  '@sphereon/pex@5.0.0-unstable.28':
     dependencies:
       '@astronautlabs/jsonpath': 1.1.2
       '@sd-jwt/decode': 0.7.2
@@ -14869,7 +14873,6 @@ snapshots:
       ajv-formats: 2.1.1(ajv@8.17.1)
       jwt-decode: 3.1.2
       nanoid: 3.3.7
-      string.prototype.matchall: 4.0.11
       uint8arrays: 3.1.1
     transitivePeerDependencies:
       - supports-color
@@ -15407,7 +15410,7 @@ snapshots:
 
   '@sphereon/ssi-sdk.credential-store@0.31.1-fix.20(encoding@0.1.13)(sqlite3@5.1.7)(ts-node@10.9.2(@types/node@18.19.50)(typescript@4.9.5))':
     dependencies:
-      '@sphereon/pex': 5.0.0-unstable.11
+      '@sphereon/pex': 5.0.0-unstable.28
       '@sphereon/pex-models': 2.3.1
       '@sphereon/ssi-sdk.data-store': 0.31.1-fix.20(encoding@0.1.13)(sqlite3@5.1.7)(ts-node@10.9.2(@types/node@18.19.50)(typescript@4.9.5))
       cross-fetch: 3.1.8(encoding@0.1.13)
@@ -15479,7 +15482,7 @@ snapshots:
   '@sphereon/ssi-sdk.data-store@0.31.1-fix.20(encoding@0.1.13)(sqlite3@5.1.7)(ts-node@10.9.2(@types/node@18.19.50)(typescript@4.9.5))':
     dependencies:
       '@sphereon/kmp-mdoc-core': 0.2.0-SNAPSHOT.16
-      '@sphereon/pex': 5.0.0-unstable.11
+      '@sphereon/pex': 5.0.0-unstable.28
       '@sphereon/ssi-sdk-ext.did-utils': 0.26.1-next.11(encoding@0.1.13)(sqlite3@5.1.7)(ts-node@10.9.2(@types/node@18.19.50)(typescript@4.9.5))
       '@sphereon/ssi-sdk-ext.identifier-resolution': 0.26.1-next.11(encoding@0.1.13)(sqlite3@5.1.7)(ts-node@10.9.2(@types/node@18.19.50)(typescript@4.9.5))
       '@sphereon/ssi-sdk.agent-config': 0.31.1-fix.20(sqlite3@5.1.7)(ts-node@10.9.2(@types/node@18.19.50)(typescript@4.9.5))
@@ -15548,7 +15551,7 @@ snapshots:
     dependencies:
       '@sphereon/did-auth-siop': 0.16.1-next.229(encoding@0.1.13)(typescript@4.9.5)
       '@sphereon/kmp-mdoc-core': 0.2.0-SNAPSHOT.16
-      '@sphereon/pex': 5.0.0-unstable.11
+      '@sphereon/pex': 5.0.0-unstable.28
       '@sphereon/pex-models': 2.3.1
       '@sphereon/ssi-sdk-ext.did-utils': 0.26.1-next.11(encoding@0.1.13)(sqlite3@5.1.7)(ts-node@10.9.2(@types/node@18.19.50)(typescript@4.9.5))
       '@sphereon/ssi-sdk-ext.key-utils': 0.26.1-next.11
@@ -15769,7 +15772,7 @@ snapshots:
 
   '@sphereon/ssi-sdk.pd-manager@0.31.1-fix.20(encoding@0.1.13)(sqlite3@5.1.7)(ts-node@10.9.2(@types/node@18.19.50)(typescript@4.9.5))':
     dependencies:
-      '@sphereon/pex': 5.0.0-unstable.11
+      '@sphereon/pex': 5.0.0-unstable.28
       '@sphereon/pex-models': 2.3.1
       '@sphereon/ssi-sdk.data-store': 0.31.1-fix.20(encoding@0.1.13)(sqlite3@5.1.7)(ts-node@10.9.2(@types/node@18.19.50)(typescript@4.9.5))
       cross-fetch: 3.1.8(encoding@0.1.13)
@@ -15801,7 +15804,7 @@ snapshots:
 
   '@sphereon/ssi-sdk.presentation-exchange@0.31.1-fix.20(encoding@0.1.13)(sqlite3@5.1.7)(ts-node@10.9.2(@types/node@18.19.50)(typescript@4.9.5))(typescript@4.9.5)':
     dependencies:
-      '@sphereon/pex': 5.0.0-unstable.11
+      '@sphereon/pex': 5.0.0-unstable.28
       '@sphereon/pex-models': 2.3.1
       '@sphereon/ssi-sdk-ext.did-utils': 0.26.1-next.11(encoding@0.1.13)(sqlite3@5.1.7)(ts-node@10.9.2(@types/node@18.19.50)(typescript@4.9.5))
       '@sphereon/ssi-sdk-ext.identifier-resolution': 0.26.1-next.11(encoding@0.1.13)(sqlite3@5.1.7)(ts-node@10.9.2(@types/node@18.19.50)(typescript@4.9.5))
@@ -15939,7 +15942,7 @@ snapshots:
       '@sphereon/did-auth-siop': 0.16.1-next.229(encoding@0.1.13)(typescript@4.9.5)
       '@sphereon/did-auth-siop-adapter': 0.16.1-next.224(encoding@0.1.13)(typescript@4.9.5)
       '@sphereon/oid4vc-common': 0.16.1-next.224
-      '@sphereon/pex': 5.0.0-unstable.11
+      '@sphereon/pex': 5.0.0-unstable.28
       '@sphereon/ssi-sdk-ext.did-utils': 0.26.1-next.11(encoding@0.1.13)(sqlite3@5.1.7)(ts-node@10.9.2(@types/node@18.19.50)(typescript@4.9.5))
       '@sphereon/ssi-sdk-ext.identifier-resolution': 0.26.1-next.11(encoding@0.1.13)(sqlite3@5.1.7)(ts-node@10.9.2(@types/node@18.19.50)(typescript@4.9.5))
       '@sphereon/ssi-sdk-ext.jwt-service': 0.26.1-next.11(encoding@0.1.13)(sqlite3@5.1.7)(ts-node@10.9.2(@types/node@18.19.50)(typescript@4.9.5))

@@ -8,12 +8,18 @@ module.exports = {
                 fs: require.resolve('./src/utils/fs-browser.js'),  
             };
 
+            webpackConfig.module.rules.push({
+                test: /\.cjs$/,
+                type: 'javascript/auto',
+            });
+
             webpackConfig.resolve.fallback = {
                 ...webpackConfig.resolve.fallback,
                 crypto: require.resolve('crypto-browserify'),
                 stream: require.resolve('stream-browserify'),
                 path: require.resolve('path-browserify'),
                 buffer: require.resolve('buffer'),
+                vm: require.resolve('vm-browserify'),
                 fs: false,  
             };
 
